@@ -128,92 +128,39 @@ public class CasoDetective {
 
         System.out.println("Buen trabajo, detective " + nombre);
 
-        System.out.println("\nREGISTRO DEL POLICIA");
+        System.out.println("\nREGISTRO DEL ESPIA");
 
-        System.out.print("Id: ");
-        int id = sc.nextInt();
+        Espia agente = new Espia("Cuervo Silente", 10, 6);
 
-        System.out.print("Experiencia: ");
-        int experiencia = sc.nextInt();
+        agente.mostrarProgreso();
 
-        System.out.print("Telefono: ");
-        int telefono = sc.nextInt();
-        sc.nextLine();
-
-        System.out.print("Nombre: ");
-        String nombrePolicia = sc.nextLine();
-
-        System.out.print("Agencia: ");
-        String agencia = sc.nextLine();
-
-        System.out.print("Rango: ");
-        String rango = sc.nextLine();
-
-        System.out.print("Arma: ");
-        String arma = sc.nextLine();
-
-        System.out.print("Estacion: ");
-        String estacion = sc.nextLine();
-
-        System.out.print("Acompanante: ");
-        String acompanante = sc.nextLine();
-
-        System.out.print("Area: ");
-        String area = sc.nextLine();
-
-        Policia p1 = new Policia(
-                id,
-                experiencia,
-                telefono,
-                nombrePolicia,
-                agencia,
-                rango,
-                arma,
-                estacion,
-                acompanante,
-                area
-        );
-
-        p1.reportar();
-
-        System.out.println(p1.obtenerInfo());
+        sc.close();
     }
 }
 
-class Policia
-{
-    protected int id;
-    protected int experiencia;
-    protected int telefono;
-    protected String arma;
-    protected String estacion;
-    protected String acompanante;
-    protected String area;
-    protected String nombre;
-    protected String agencia;
-    protected String rango;
+class Espia {
 
-    public Policia(int id, int experiencia, int telefono, String nombre, String agencia, String rango, String arma, String estacion, String acompanante, String area)
-    {
-        this.id = id;
-        this.nombre = nombre;
-        this.agencia = agencia;
-        this.rango = rango;
-        this.experiencia = experiencia;
-        this.telefono = telefono;
-        this.arma = arma;
-        this.acompanante = acompanante;
-        this.area = area;
-        this.estacion = estacion;
+    // Atributos
+    String nombreClave;
+    int mensajesInterceptados;
+    int mensajesDecodificados;
+
+    // Constructor
+    public Espia(String nombreClave, int mensajesInterceptados, int mensajesDecodificados) {
+
+        this.nombreClave = nombreClave;
+        this.mensajesInterceptados = mensajesInterceptados;
+        this.mensajesDecodificados = mensajesDecodificados;
     }
 
-    public void reportar()
-    {
-        System.out.println(nombre + " reportar a " + agencia);
-    }
+    // Método
+    public void mostrarProgreso() {
 
-    public String obtenerInfo()
-    {
-        return nombre + "[" + rango + "]";
+        int pendientes = mensajesInterceptados - mensajesDecodificados;
+
+        System.out.println("Nombre clave: " + nombreClave);
+        System.out.println("Mensajes interceptados: " + mensajesInterceptados);
+        System.out.println("Mensajes decodificados: " + mensajesDecodificados);
+        System.out.println("Mensajes pendientes: " + pendientes);
     }
 }
