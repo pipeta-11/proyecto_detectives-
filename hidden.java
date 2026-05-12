@@ -130,6 +130,7 @@ public class CasoDetective {
 
         System.out.println("\nREGISTRO DEL ESPIA");
 
+        // Cuervo silente hace referencia al misterio, aura enigmática y espiritual, relacionada con una novela de Edgar Allan Poe
         Espia agente = new Espia("Cuervo Silente", 10, 6);
 
         agente.mostrarProgreso();
